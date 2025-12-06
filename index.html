@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notifications Demo</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Notification Sender</h1>
+      <p class="subtitle">Demo: send desktop-style notifications with history, auto-send, and controls</p>
+    </header>
+
+    <section class="controls card">
+      <div class="row">
+        <button id="sendOnceBtn" class="btn primary">Send Random Notification</button>
+        <label class="switch">
+          <input id="autoSendToggle" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+        <span class="small">Auto-send</span>
+      </div>
+
+      <div class="row settings">
+        <label>
+          Interval (sec)
+          <input id="intervalInput" type="number" min="1" value="5" />
+        </label>
+
+        <label>
+          Filter App
+          <select id="appFilter">
+            <option value="all">All apps</option>
+          </select>
+        </label>
+
+        <label>
+          <input id="vibrateToggle" type="checkbox" />
+          Vibrate
+        </label>
+
+        <label>
+          <input id="silentToggle" type="checkbox" />
+          Silent (no sound)
+        </label>
+      </div>
+
+      <div class="row small-stats">
+        <div>Sent: <span id="sentCount">0</span></div>
+        <div>History: <span id="historyCount">0</span></div>
+      </div>
+    </section>
+
+    <section class="preview-history">
+      <aside class="card preview">
+        <h3>Next Preview</h3>
+        <div id="previewCard" class="preview-card">
+          <img id="previewIcon" src="" alt="icon" />
+          <div>
+            <div id="previewTitle" class="title">App Notification</div>
+            <div id="previewBody" class="body">Notification text preview</div>
+          </div>
+        </div>
+
+        <div class="small muted">Click "Send Random Notification" to test.</div>
+      </aside>
+
+      <section class="card history">
+        <h3>Notification History</h3>
+        <div id="historyList" class="history-list" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <section class="card notif-legend">
+      <h4>Included apps</h4>
+      <div id="legend" class="legend"></div>
+    </section>
+    
+    <footer class="muted">
+      <small>Notifications use the browser Notification API. Allow permission when prompted. Works best on desktop browsers.</small>
+    </footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
